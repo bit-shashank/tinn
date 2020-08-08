@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name = 'tinn',         # How you named your package folder (MyLib)
     packages = ['tinn'],   # Chose the same as "name"
-    version = '1.0',      # Start with a small number and increase it with every change you make
+    version = '1.01',      # Start with a small number and increase it with every change you make
     license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description = 'A light weight simple, multi layer ,feedforward neural network library',   # Give a short description about your library
     author = 'Shashank Sahu',                   # Type in your name
