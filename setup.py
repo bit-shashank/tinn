@@ -1,7 +1,5 @@
 from distutils.core import setup
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
 
 setup(
     name = 'tinn',         # How you named your package folder (MyLib)
@@ -9,8 +7,6 @@ setup(
     version = '1.0',      # Start with a small number and increase it with every change you make
     license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description = 'A light weight simple, multi layer ,feedforward neural network library',   # Give a short description about your library
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     author = 'Shashank Sahu',                   # Type in your name
     author_email = 'shashankcs083@gmail.com',      # Type in your E-Mail
     url = 'https://github.com/bit-shashank/tinn',   # Provide either the link to your github or to your website
