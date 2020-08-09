@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: tinn
-Version: 2.0
+Version: 2.1
 Summary: A light weight simple, multi layer ,feedforward neural network library
 Home-page: https://github.com/bit-shashank/tinn
 Author: Shashank Sahu
 Author-email: shashankcs083@gmail.com
 License: MIT
-Download-URL: https://github.com/bit-shashank/tinn/archive/v1.0-alpha.tar.gz
+Download-URL: https://github.com/bit-shashank/tinn/archive/v0.2-alpha.tar.gz
 Description: # TINN
         TINN acronym for Tiny Neural Network is a lightweight, neural network library,build over numpy.
         

@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name = 'tinn',         # How you named your package folder (MyLib)
     packages = ['tinn'],   # Chose the same as "name"
-    version = '2.0',      # Start with a small number and increase it with every change you make
+    version = '2.01',      # Start with a small number and increase it with every change you make
     license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description = 'A light weight simple, multi layer ,feedforward neural network library',   # Give a short description about your library
     long_description=long_description,
@@ -17,7 +17,7 @@ setup(
     author = 'Shashank Sahu',                   # Type in your name
     author_email = 'shashankcs083@gmail.com',      # Type in your E-Mail
     url = 'https://github.com/bit-shashank/tinn',   # Provide either the link to your github or to your website
-    download_url = 'https://github.com/bit-shashank/tinn/archive/v1.0-alpha.tar.gz',    # I explain this later on
+    download_url = 'https://github.com/bit-shashank/tinn/archive/v0.2-alpha.tar.gz',    # I explain this later on
     keywords = ['Neural', 'Deep', 'Learning' ,'Machine','Network'],   # Keywords that define your package best
     install_requires=[            # I get to this in a second
             'numpy',
