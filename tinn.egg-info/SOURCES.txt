@@ -1,0 +1,11 @@
+README.md
+setup.py
+tinn/__init__.py
+tinn/activations.py
+tinn/layer.py
+tinn/neural.py
+tinn.egg-info/PKG-INFO
+tinn.egg-info/SOURCES.txt
+tinn.egg-info/dependency_links.txt
+tinn.egg-info/requires.txt
+tinn.egg-info/top_level.txt

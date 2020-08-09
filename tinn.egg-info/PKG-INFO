@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: tinn
+Version: 2.0
+Summary: A light weight simple, multi layer ,feedforward neural network library
+Home-page: https://github.com/bit-shashank/tinn
+Author: Shashank Sahu
+Author-email: shashankcs083@gmail.com
+License: MIT
+Download-URL: https://github.com/bit-shashank/tinn/archive/v1.0-alpha.tar.gz
+Description: # TINN
+        TINN acronym for Tiny Neural Network is a lightweight, neural network library,build over numpy.
+        
+        # Installation
+        You can download  tinn using pip via pypi.
+        ``` $ pip install tinn ```
+        
+        # Getting Started
+        
+        ### Creating a neural network 
+        Lets start by creating a 3 layer neural network
+        
+        First start with importing the required modules
+        
+        ```
+            from tinn.neural import NeuralNet
+            from tinn.layer import Layer
+        ```
+        
+        A neural network is composed of a series of layers of neurons, such that all the neurons in each layer connect to the neurons in the next layer.
+        
+        Lets see how to make a layer using tinn.
+        
+        A layer in tinn requires 2 parameters
+        - num_neurons : No of neurons in that layer
+        - activation : Activation function for that layer
+        
+        Lets create a layer with 5 neurons and sigmoid activation function
+        ``` l1=Layer(5,'sigmoid') ```
+        
+        Once the layer is created a neural network can be created by combining multiple layers using ``` tinn.neural.NeuralNet ``` class.
+        
+        ```python
+            model= NeuralNet() # Creates an empty neural network with 0 layers
+            model.add(Layer(3,'sigmoid') # Hidden layer with 3 neurons
+            model.add(Layer(5,'sigmoid') # Hidden layer with 5 neurons
+            model.add(Layer(1,'sigmoid') # Outpput layer with1 neuron
+        ```
+        Above code creates a 3 layered neural network with 2 hidden layers and 1 output layer.
+        
+        ### Training the model
+        
+        ``` tinn.neural.NeuralNet.train() ``` can be used to train the neural network on a given set of training data using stochastic gradient descent algorithm.
+        
+        Here is the prototype of train method in NeuralNet class.
+        ``` def train(self,inputData,outputData,learning_rate=0.01,epocs=100,suffle=True) ```
+        
+        - inputData      : An array of all inputs of the training set. 
+        - outputData     : Array of corresponding outputs of the training set.
+        - learning_rate  : Could be used to tweak the learning rate parameter
+        - epocs          : Default epocs is 100, it denotes the number of traning iterations over the given dataset
+        - suffle         : If set to false, dataset will not be shuffled between epocs.
+        
+        
+        ### Accuracy of the model
+        ``` tinn.neural.NeuralNet.validate() ``` is used to compute the accuracy of the model on given testing data. It returns a floating number between [0,1] inclusive where 1 represents 100 percent accuracy.
+        
+        ### Prediction
+        Once the model is trained ``` tinn.neural.NeuralNet.predict() ``` can be used to get the predicted outputs from the trained neural network.
+        
+        ### Saving the model
+        
+        ``` tinn.neural.NeuralNet.save()  ``` saves the model to a file.
+        ``` python
+            NeuralNet.save(self,filepath)
+        ```
+        Saves the model along with weights and architecture ,in the specified file, uses pickle module of python.
+        
+        ### Loading the model
+        
+        Trained model can be loaded from the file using ``` tinn.neural.NeuralNet.load() ```
+        ``` model=NeuralNet.load('handWrittenDigit.pkl') ```
+        Once loaded the model can be use for prediction.
+        
+        
+        
+        
+        
+Keywords: Neural,Deep,Learning,Machine,Network
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

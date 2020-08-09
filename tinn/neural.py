@@ -76,8 +76,7 @@ class NeuralNet:
         return mse
             
 
-
-
+    
     def train(self,inputData,outputData,learning_rate=0.01,epocs=100,suffle=True):
         """
             Trains the model on given training data
@@ -88,19 +87,17 @@ class NeuralNet:
                 epocs (int)             : Number of iterations over training data 
                 suffle (boolean)        : Set to false to prevent shuffling between epocs
         """
-        stepSize=len(inputData)//50
+        len_inp=len(inputData)
+        printProgressBar(0,len_inp,prefix='Epoc:', suffix='Error:',length=50)
         for epoc in range(epocs):
-            print("Epoc:"+str(epoc),end="\t",flush=True)
             if suffle:
                 #Shuffle all data before each epoc
                 inputData,outputData=self.unison_suffle(inputData,outputData)
             #Train network on all input data
             for i in range(len(inputData)):
-                if i%stepSize==0:
-                    print("#",end="",flush=True)
                 error=self.backpropogate(inputData[i],outputData[i],learning_rate)
-            print("\t",error)
-
+                printProgressBar(i + 1, len_inp, prefix = 'Epoc:'+str(epoc), suffix = 'Error:'+str(error), length = 50)
+        
 
     def validate(self,test_inputs,test_outputs):
         """
@@ -186,3 +183,26 @@ class NeuralNet:
         out=outputs.reshape(len(outputs))
         classes=np.where(out==max(out))
         return classes
+
+
+# Print iterations progress
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end = printEnd)
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
